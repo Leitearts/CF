@@ -1,0 +1,41 @@
+name: farm_os_mobile
+description: Farm OS - Digital Farm Management System (Flutter client)
+publish_to: "none"
+version: 0.1.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+  flutter: ">=3.19.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management (single approach used throughout, per architecture doc)
+  flutter_riverpod: ^2.5.1
+
+  # Networking
+  dio: ^5.4.3+1
+
+  # Routing (declarative, supports auth-based redirects)
+  go_router: ^14.2.0
+
+  # Secure token storage (never store tokens/passwords in plain prefs)
+  flutter_secure_storage: ^9.2.2
+
+  # Non-sensitive local cache (user preferences, last-used defaults)
+  shared_preferences: ^2.2.3
+
+  # Date/number formatting, locale-ready (see core/utils/formatters.dart)
+  intl: ^0.19.0
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  mocktail: ^1.0.4
+
+flutter:
+  uses-material-design: true

@@ -1,0 +1,13 @@
+import { createParamDecorator, ExecutionContext } from '@nestjs/common';
+import { AuthenticatedUser } from '../../auth/strategies/jwt.strategy';
+
+/**
+ * Usage: findAll(@CurrentUser() user: AuthenticatedUser)
+ * Populated by JwtStrategy.validate() once JwtAuthGuard has run.
+ */
+export const CurrentUser = createParamDecorator(
+  (_data: unknown, ctx: ExecutionContext): AuthenticatedUser => {
+    const request = ctx.switchToHttp().getRequest();
+    return request.user;
+  },
+);
