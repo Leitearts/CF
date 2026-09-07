@@ -1,4 +1,4 @@
-import '../../../../core/errors/app_failure.dart';
+import '../errors/app_failure.dart';
 
 /// Generic "submitting a form" state, reused by every auth form controller
 /// (and, in later sprints, every other write-action controller) so the UI
