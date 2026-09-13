@@ -15,24 +15,24 @@ final secureStorageProvider = Provider<SecureStorageService>((ref) {
 /// provider's own build -- so this does not create a circular dependency
 /// even though authControllerProvider transitively depends on apiClient via
 /// authRepositoryProvider below.
-final apiClientProvider = Provider<ApiClient>((ref) {
+final Provider<ApiClient> apiClientProvider = Provider<ApiClient>((ref) {
   return ApiClient(
     secureStorage: ref.watch(secureStorageProvider),
     onSessionExpired: () => ref.read(authControllerProvider.notifier).forceLogout(),
   );
 });
 
-final authRemoteDataSourceProvider = Provider<AuthRemoteDataSource>((ref) {
+final Provider<AuthRemoteDataSource> authRemoteDataSourceProvider = Provider<AuthRemoteDataSource>((ref) {
   return AuthRemoteDataSource(ref.watch(apiClientProvider));
 });
 
-final authRepositoryProvider = Provider<AuthRepository>((ref) {
+final Provider<AuthRepository> authRepositoryProvider = Provider<AuthRepository>((ref) {
   return AuthRepository(
     remoteDataSource: ref.watch(authRemoteDataSourceProvider),
     secureStorage: ref.watch(secureStorageProvider),
   );
 });
 
-final authControllerProvider = StateNotifierProvider<AuthController, AuthState>((ref) {
+final StateNotifierProvider<AuthController, AuthState> authControllerProvider = StateNotifierProvider<AuthController, AuthState>((ref) {
   return AuthController(ref.watch(authRepositoryProvider));
 });

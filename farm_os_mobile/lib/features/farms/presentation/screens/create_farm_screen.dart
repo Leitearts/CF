@@ -132,7 +132,7 @@ class _CreateFarmScreenState extends ConsumerState<CreateFarmScreen> {
                 const SizedBox(height: AppSpacing.lg),
                 DropdownButtonFormField<String>(
                   decoration: const InputDecoration(labelText: 'Farm type'),
-                  value: _selectedFarmType,
+                  initialValue: _selectedFarmType,
                   items: _farmTypeOptions
                       .map((type) => DropdownMenuItem(value: type, child: Text(type)))
                       .toList(),

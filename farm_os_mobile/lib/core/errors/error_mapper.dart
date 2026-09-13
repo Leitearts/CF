@@ -24,6 +24,7 @@ class ErrorMapper {
       case DioExceptionType.connectionTimeout:
       case DioExceptionType.sendTimeout:
       case DioExceptionType.receiveTimeout:
+      case DioExceptionType.transformTimeout:
         return const AppFailure(
           type: FailureType.timeout,
           message: 'The request took too long. Please check your connection and try again.',

@@ -62,7 +62,7 @@ void main() {
     );
     await tester.pump();
 
-    expect(find.text('Caro Test Farm'), findsOneWidget);
+    expect(find.text('Caro Test Farm'), findsNWidgets(2));
     expect(find.text('Kabarak'), findsOneWidget);
     expect(find.text('Mixed Livestock'), findsOneWidget);
     expect(find.widgetWithText(OutlinedButton, 'Farm Details'), findsOneWidget);

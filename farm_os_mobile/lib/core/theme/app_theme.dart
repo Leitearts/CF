@@ -61,7 +61,7 @@ class AppTheme {
       // NOTE: using CardTheme (not CardThemeData) for compatibility with the
       // pubspec's flutter >=3.19.0 floor. If your installed SDK is newer and
       // `flutter analyze` flags this, it's a one-line rename to CardThemeData.
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: isDark ? AppColors.surfaceVariantDark : AppColors.surface,
         elevation: 0,
         margin: EdgeInsets.zero,
