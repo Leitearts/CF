@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import '../core/widgets/home_placeholder_screen.dart';
+import '../features/farms/presentation/screens/farms_home_screen.dart';
 import '../features/auth/application/auth_state.dart';
 import '../features/auth/auth_providers.dart';
 import '../features/auth/presentation/screens/forgot_password_screen.dart';
@@ -43,10 +43,9 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/reset-password',
         builder: (context, state) => ResetPasswordScreen(identifier: state.extra as String? ?? ''),
       ),
-      // TEMPORARY: '/home' is the Sprint 1 placeholder. Sprint 2 replaces
-      // this with '/farm-onboarding' (new users) and the real '/dashboard'
-      // shell (returning users), per the Farm Onboarding flow in the brief.
-      GoRoute(path: '/home', builder: (context, state) => const HomePlaceholderScreen()),
+      // Sprint 1 home now handles farm creation, listing, selection, details,
+      // and updates against the live backend farm endpoints.
+      GoRoute(path: '/home', builder: (context, state) => const FarmsHomeScreen()),
     ],
   );
 });

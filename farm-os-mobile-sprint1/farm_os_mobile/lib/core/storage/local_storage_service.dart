@@ -18,6 +18,8 @@ class LocalStorageService {
   Future<void> setActiveFarmId(String farmId) =>
       _prefs.setString(StorageKeys.activeFarmId, farmId);
 
+  Future<void> clearActiveFarmId() => _prefs.remove(StorageKeys.activeFarmId);
+
   bool get hasCompletedOnboarding =>
       _prefs.getBool(StorageKeys.hasCompletedOnboarding) ?? false;
 
